@@ -1,30 +1,32 @@
-// (!!!!)3.soru => Kullanıcıdan gerçel ve sanal değerleri alınan
-// 2 karmaşık sayı parametre olarak ComplexAdd fonksiyonuna gönderilecek ve toplam sonucu karmaşık sayı tipinde döndürülüp main’de yazdırılacaktır.
 #include <stdio.h>
-struct complex
+
+struct Complex
 {
     float gercel;
     float sanal;
 };
 
-struct complex topla(struct complex a, struct complex b)
+struct Complex ComplexAdd(struct Complex a, struct Complex b)
 {
-    struct complex toplam;
+    struct Complex toplam;
     toplam.gercel = a.gercel + b.gercel;
     toplam.sanal = a.sanal + b.sanal;
     return toplam;
 }
+
 int main()
 {
-    struct complex sayi1 = {3.2, 4.5};
-    struct complex sayi2 = {1.8, -2.3};
+    struct Complex sayi1, sayi2, sonuc;
 
-    struct complex sonuc = topla(sayi1, sayi2);
+    printf("1. Karmaşık Sayının Gerçel ve Sanal Kısımlarını Giriniz: ");
+    scanf("%f %f", &sayi1.gercel, &sayi1.sanal);
 
-    printf("Birinci: %fi + %f \n", sayi1.sanal, sayi1.gercel);
-    printf("İkinci: %fi + %f \n", sayi2.sanal, sayi2.gercel);
-    printf("Toplam: %fi + %f \n", sonuc.sanal, sonuc.gercel);
+    printf("2. Karmaşık Sayının Gerçel ve Sanal Kısımlarını Giriniz: ");
+    scanf("%f %f", &sayi2.gercel, &sayi2.sanal);
 
+    sonuc = ComplexAdd(sayi1, sayi2);
+
+    printf("\nToplam Karmaşık Sayı: %.2f + %.2fi\n", sonuc.gercel, sonuc.sanal);
 
     return 0;
 }
