@@ -1,38 +1,37 @@
-// 2.soru => Bir sınıftaki 10 öğrenci için öğrenci no,vize ve final notları tutulacaktır. Bu işlem için dizinin her bir elemanında öğrencinin numarası,vize ve final notu olacak şekilde 10 elemanlı bir dizi oluşturulup değerleri kullanıcıdan alınacak ve bu dizi NotHesapla fonksiyonuna gönderilip her öğrencinin ortsı ve öğrenci numarası, ayrıca sınıfın genel not ortsı ekrana yazdırılacaktır.
 #include <stdio.h>
-struct notlar
+struct notes
 {
-    int ogrno;
-    int vize;
+    int student_number;
+    int visa;
     int final;
 };
-void hesapla(struct notlar not[])
+void calculate(struct notes note[])
 {
     int sum = 0;
-    printf("\nÖğrenci Notları ve Ortalamaları:\n");
+    printf("\nStudent Grades and Averages:\n");
     printf("--------------------------------\n");
     for (int i = 0; i < 5; i++)
     {
-        float ort = (not[i].vize * 0.4) + (not[i].final * 0.6);
-        sum += ort;
-        printf("ogrno:%d\tort%.2f\n", not[i].ogrno, ort);
+        float average = (note[i].visa * 0.4) + (note[i].final * 0.6);
+        sum += average;
+        printf("student_number:%d\tort%.2f\n", note[i].student_number, average);
     }
     sum /= 10;
-    printf("geneltoplam:%d", sum);
+    printf("grand total:%d", sum);
 }
 int main()
 {
-    struct notlar n[5];
+    struct notes n[5];
     for (int i = 0; i < 5; i++)
     {
         printf("\nno\n", i + 1);
-        printf("ogrno: ");
-        scanf("%d", &n[i].ogrno);
-        printf("vize:");
-        scanf("%d", &n[i].vize);
+        printf("student_number: ");
+        scanf("%d", &n[i].student_number);
+        printf("visa:");
+        scanf("%d", &n[i].visa);
         printf("final:");
         scanf("%d", &n[i].final);
     }
-    hesapla(n);
+    calculate(n);
     return 0;
 }
