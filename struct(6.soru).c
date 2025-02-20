@@ -1,4 +1,3 @@
-// Kullanıcıdan saat, dakika ve saniye olarak ayrı ayrı girilen iki zaman arasındaki farkı yine saat,dakika ve saniye cinsinden bulup ekrana yazdırınız.
 #include <stdio.h>
 struct zaman
 {
@@ -29,7 +28,7 @@ void zmanhesapla(struct zaman süre, struct şimdikizaman şimdikisüre)
     dk_fark = şimdikisüre.simdiki_dk - süre.dk;
 
     sn_fark = şimdikisüre.simdiki_sn - süre.sn;
-    
+
     printf("İki zaman arasındaki fark: %d saat, %d dakika, %d saniye\n", saat_fark, dk_fark, sn_fark);
 }
 int main()
