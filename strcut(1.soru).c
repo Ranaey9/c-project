@@ -1,23 +1,22 @@
-// 1.soru => Bir dikdörtgen için uzun ve kısa kenarın tutulduğu bir struct tanımlayınız. Kullanıcıdan alınan kenar değerlerine göre bir dikdörtgen oluşturup Hesapla fonksiyonuna göndererek alanını ve çevresini hesaplayınız.
 #include <stdio.h>
-struct dikdortgen
+struct rectangle
 {
-    int kısa;
-    int uzun;
+    int short;
+    int long;
 };
-void yazdir(struct dikdortgen a)
+void print(struct rectangle a)
 {
-    int alan = a.kısa * a.uzun;
-    int cevre = 2 * (a.kısa + a.uzun);
-    printf("alan:%d\ncevre:%d", alan, cevre);
+    int field = a.short * a.long;
+    int perimeter = 2 * (a.short + a.long);
+    printf("area:%d\nenvironment:%d", area, environment);
 }
 int main()
 {
-    struct dikdortgen dik;
-    printf("Uzun kenarı giriniz: ");
-    scanf("%d", &dik.uzun);
-    printf("Kısa kenarı giriniz: ");
-    scanf("%d", &dik.kısa);
-    yazdir(dik);
+    struct rectangle upright;
+    printf("Enter the long side: ");
+    scanf("%d", &dic.long);
+    printf("Enter the short side: ");
+    scanf("%d", &dic.short);
+    print(erect);
     return 0;
 }
