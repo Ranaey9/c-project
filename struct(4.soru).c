@@ -1,49 +1,39 @@
-// (anlamdımm çalışmadı)Bir şirkette çalışan personeller için adı,maaşı ve doğum tarihi(yıl,ay,gün) şeklinde bilgiler tutulmaktadır.
-// 5 personel için bu bilgiler alındıktan sonra yaşı 25-40 arası olanların adı soyadı,maaşı ve yaşını ekrana listeleyiniz.(içiçe struct kullanılmalıdır)
-
 #include <stdio.h>
-#include <time.h>
-struct dogumyili
-{
-  int gun;
-  int ay;
-  int yil;
+struct birth_year {
+    int day;
+    int month;
+    int year;
 };
-struct kisi
-{
-  char ad[10];
-  char soyad[10];
-  float maas;
-  struct dogumyili dogum;
+struct person {
+    char name[50];
+    char surname[50];
+    float salary;
+    struct birth_year birth;
 };
-int yilhesapla(int dogumtarihi)
-{
-  int mevcutyil = 2025;
-  return mevcutyil - dogumtarihi;
+int calculate_year(int birthdate) {
+    int current_year = 2025;
+    return current_year - birthdate;
 }
-int main()
-{
-  struct kisi kisiler[5];
-  for (int i = 0; i < 1; i++)
-  {
-    printf("ad : ");
-    scanf("%s", kisiler[i].ad);
-    printf("soyad :");
-    scanf("%s", kisiler[i].soyad);
-    printf("Maaş: ");
-    scanf("%f", &kisiler[i].maas);
-    printf("Doğum tarihi (yıl ay gün): ");
-    scanf("%d %d %d", &kisiler[i].dogum.yil, &kisiler[i].dogum.ay, &kisiler[i].dogum.gun);
-  }
-  printf("\n25-40 yaş arasındaki personeller\n");
-  for (int i = 0; i < 1; i++)
-  {
-    int yas = yilhesapla(kisiler[i].dogum.yil);
-    if (yas >= 25 && yas <= 40)
-    {
-      printf("Adı: %s %s, Maaşı: %.2f, Yaşı: %d\n", kisiler[i].ad, kisiler[i].soyad, kisiler[i].maas, yas);
+int main() {
+    struct person persons[5];
+    for (int i = 0; i < 5; i++) {
+        printf("\n%d. Kişi Bilgilerini Giriniz\n", i + 1);
+        printf("İsim: ");
+        scanf("%s", persons[i].name);
+        printf("Soyisim: ");
+        scanf("%s", persons[i].surname);
+        printf("Maaş: ");
+        scanf("%f", &persons[i].salary);
+        printf("Doğum Tarihi (Yıl Ay Gün): ");
+        scanf("%d %d %d", &persons[i].birth.year, &persons[i].birth.month, &persons[i].birth.day);
     }
-  }
+    printf("\n25-40 Yaş Arasındaki Çalışanlar:\n");
+    for (int i = 0; i < 5; i++) {
+        int age = calculate_year(persons[i].birth.year);
+        if (age >= 25 && age <= 40) {
+            printf("Ad: %s %s, Maaş: %.2f, Yaş: %d\n", persons[i].name, persons[i].surname, persons[i].salary, age);
+        }
+    }
 
-  return 0;
+    return 0;
 }
